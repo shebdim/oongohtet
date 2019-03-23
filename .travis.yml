@@ -2,7 +2,7 @@ dist: xenial
 language: cpp
 compiler: clang
 before_script:
-- sudp apt update
+- sudo apt update
 - sudo apt install libboost-test-dev libspdlog-dev -y
 script:
 - cmake .
