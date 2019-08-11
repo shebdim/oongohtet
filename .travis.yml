@@ -8,3 +8,5 @@ script:
 - cmake .
 - cmake --build .
 - grep -ir thread .
+- bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
+- jq --version
