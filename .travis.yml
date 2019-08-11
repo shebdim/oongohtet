@@ -1,12 +1,13 @@
 dist: xenial
 language: cpp
 compiler: clang
-before_script:
-- sudo apt update
-- sudo apt install libboost-test-dev libspdlog-dev -y
+addons:
+  apt:
+    packages:
+    - lcov
+    - libboost-test-dev
+    - libspdlog-dev
 script:
 - cmake .
 - cmake --build .
-- grep -ir thread .
 - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
-- jq --version
