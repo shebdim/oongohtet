@@ -10,7 +10,7 @@ addons:
 script:
 - cmake .
 # - cmake --build .
-- cmake --build . --target test package
+- cmake --build . --target test
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
 deploy:
@@ -18,4 +18,3 @@ deploy:
   skip_cleanup: true
   script:
   - curl -f -T cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$API_BINTRAY_KEY "https://api.bintray.com/content/ilia64/otus_cpp/homework/$TRAVIS_BUILD_NUMBER/;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
-  
