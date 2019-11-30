@@ -25,4 +25,4 @@ deploy:
   file: bintray.json
   user: shebdim
   key: $BINTRAY_API_KEY
-  skip_cleanup: false
+  skip_cleanup: true
