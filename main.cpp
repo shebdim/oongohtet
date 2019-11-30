@@ -2,8 +2,6 @@
 
 #include <spdlog/spdlog.h>
 
-#include <optional>
-
 int main()
 {
     auto logger = spdlog::stdout_logger_st("console");
