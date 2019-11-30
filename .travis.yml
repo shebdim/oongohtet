@@ -1,6 +1,7 @@
 os:
   - linux
   - osx
+  - windows
 dist: bionic
 language: cpp
 compiler: clang
