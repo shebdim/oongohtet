@@ -13,6 +13,6 @@
   },
   "files":
         [
-        {"includePattern": "*\\.deb)"}
+        {"includePattern": "*\\.deb"}
         ]
 }
