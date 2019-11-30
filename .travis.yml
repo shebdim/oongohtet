@@ -6,6 +6,10 @@ dist: bionic
 language: cpp
 compiler: clang
 addons:
+  sonarcloud:
+    organization: shebdim
+    token:
+      secure: $SONAR_TOKEN
   apt:
     packages:
     - lcov
@@ -17,6 +21,7 @@ before_install:
 script:
 - export
 - env
+- sonar-scanner
 - cmake .
 - cmake --build .
 - cmake --build . --target test
