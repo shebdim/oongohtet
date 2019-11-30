@@ -9,6 +9,8 @@ addons:
     - libspdlog-dev
     - libgtest-dev
 script:
+- export
+- env
 - cmake .
 - cmake --build .
 - cmake --build . --target test
