@@ -7,6 +7,7 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 # find_package(GTest REQUIRED)
 
 configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
+configure_file(bintray.json.in bintray.json)
 
 add_executable(helloworld_cli main.cpp)
 
