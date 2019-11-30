@@ -16,7 +16,6 @@ script:
 - cmake --build . --target test
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
-- cmake --build . --target clean
 deploy:
 #   provider: script
 #   skip_cleanup: true
@@ -26,4 +25,4 @@ deploy:
   file: bintray.json
   user: shebdim
   key: $BINTRAY_API_KEY
-  skip_cleanup: true
+  skip_cleanup: false
