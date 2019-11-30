@@ -22,9 +22,9 @@ script:
 - export
 - env
 - cmake .
-- build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build .
+- cmake --build .
+- build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build . --target test
 - sonar-scanner
-- cmake --build . --target test
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
 after_success:
