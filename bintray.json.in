@@ -11,9 +11,16 @@
   "version": {
     "name": "@CMAKE_PROJECT_VERSION@"
   },
-  "files":
-        [
-        {"includePattern": "*\.deb"}
-        ],
-        "publish": true
+  "files": [
+    {
+      "includePattern": "(.*\\.deb)",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "$ENV{TRAVIS_DIST}",
+        "deb_component": "main",
+        "deb_architecture": "$ENV{TRAVIS_ARCH}"
+      }
+    }
+  ],
+  "publish": true
 }
