@@ -10,5 +10,9 @@
   },
   "version": {
     "name": "@CMAKE_PROJECT_VERSION@"
-  }
+  },
+  "files":
+        [
+        {"includePattern": "*\\.deb)"}
+        ]
 }
