@@ -16,6 +16,7 @@ script:
 - cmake --build . --target test
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
+- cmake --build . --target clean
 deploy:
 #   provider: script
 #   skip_cleanup: true
