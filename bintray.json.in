@@ -1,2 +1,14 @@
 {
+  "package": {
+    "subject": "shebdim",
+    "name": "homework2",
+    "repo": "otus-cpp",
+    "licenses": [
+      "BSD"
+    ],
+    "vcs_url": "$ENV{HOME}"
+  },
+  "version": {
+    "name": "$ENV{TRAVIS_BUILD_NUMBER}"
+  }
 }
