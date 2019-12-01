@@ -29,7 +29,8 @@ script:
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
 after_success:
-- coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+# - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+- coveralls
 deploy:
   provider: bintray
   file: bintray.json
