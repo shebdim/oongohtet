@@ -19,7 +19,7 @@ set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra;-fprofile-arcs;-ftest-coverage"
-    LINK_OPTIONS "--coverage"
+    LINK_FLAGS "--coverage"
 )
 
 set_target_properties(test_version PROPERTIES
