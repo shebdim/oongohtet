@@ -20,6 +20,8 @@ before_install:
   - pip install --user cpp-coveralls
 script:
 - cmake .
+- find . -name '*.gc*'
+- grep -r cover .
 - cmake --build .
 # - build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build . --target test
 # - sonar-scanner
