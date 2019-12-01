@@ -25,7 +25,7 @@ script:
 # - sonar-scanner
 - cmake --build . --target test
 - cmake --build . --target package
-- update-alternatives --install /usr/bin/gcov gcov /usr/bin/llvm-cov 90
+- sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/llvm-cov 90
 - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
 # - llvm-cov gcov --directory . --output-file coverage.info
 - llvm-cov gcov -c  -d . -o coverage.info
