@@ -20,12 +20,12 @@ before_install:
   - pip install --user cpp-coveralls
 script:
 - cmake .
-- find . -name '*.gc*'
-- grep -r cover .
 - cmake --build .
 # - build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build . --target test
 # - sonar-scanner
 - cmake --build . --target test
+- find . -name '*.gc*'
+- grep -r cover .
 - cmake --build . --target package
 # - bash <(curl -s https://codecov.io/bash) -X gcov || echo "Codecov did not collect coverage reports"
 after_success:
