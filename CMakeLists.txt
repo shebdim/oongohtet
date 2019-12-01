@@ -35,7 +35,7 @@ target_link_libraries(helloworld_cli
 target_link_libraries(test_version
     ${Boost_LIBRARIES}
     helloworld
-    
+    gcov
 )
 
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
