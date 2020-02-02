@@ -1,0 +1,27 @@
+{
+  "package": {
+    "subject": "shebdim",
+    "name": "@CMAKE_PROJECT_NAME@",
+    "repo": "otus-cpp",
+    "licenses": [
+      "BSD"
+    ],
+    "vcs_url": "https://github.com/$ENV{TRAVIS_REPO_SLUG}"
+  },
+  "version": {
+    "name": "@CMAKE_PROJECT_VERSION@"
+  },
+  "files": [
+    {
+      "includePattern": "./(.*\\.deb)",
+      "excludePattern": "./.*/.*",
+      "uploadPattern": "$1",
+      "matrixParams": {
+        "deb_distribution": "$ENV{TRAVIS_DIST}",
+        "deb_component": "main",
+        "deb_architecture": "$ENV{TRAVIS_ARCH}"
+      }
+    }
+  ],
+  "publish": true
+}

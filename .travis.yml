@@ -1,0 +1,41 @@
+os:
+  - linux
+#   - osx
+#   - windows
+dist: bionic
+language: cpp
+compiler: clang
+addons:
+#   sonarcloud:
+#     organization: shebdim
+#     token:
+#       secure: $SONAR_TOKEN
+  apt:
+    packages:
+#     - lcov
+    - libboost-test-dev
+    - libspdlog-dev
+    - libgtest-dev
+before_install:
+  - pip install --user cpp-coveralls
+script:
+- cmake .
+- cmake --build .
+# - build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build . --target test
+# - sonar-scanner
+- cmake --build . --target test
+- cmake --build . --target package
+- sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/llvm-cov 90
+- bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+# - llvm-cov gcov --directory . --output-file coverage.info
+- llvm-cov gcov -c  -d . -o coverage.info
+- bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
+after_success:
+# - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+- coveralls --gcov llvm-cov --gcov-options gcov
+deploy:
+  provider: bintray
+  file: bintray.json
+  user: shebdim
+  key: $BINTRAY_API_KEY
+  skip_cleanup: true
